@@ -1,0 +1,14 @@
+<aiml version="1.0.1" encoding="UTF-8">
+	<category>
+		<pattern> * SEE * BY * </pattern>
+		<template>
+			<srai>BARCHART <star index="3"/> AND <star index="2"/></srai>
+		</template>
+	</category>	
+	<category>
+		<pattern> * VISUALIZE * BY * </pattern>
+		<template>
+			<srai>BARCHART <star index="3"/> AND <star index="2"/></srai>
+		</template>
+	</category>	
+</aiml>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .modal {
+            display:    none;
+            position:   fixed;
+            z-index:    1000;
+            top:        0;
+            left:       0;
+            height:     100%;
+            width:      100%;
+            background: rgba( 255, 255, 255, .8 )
+            url('http://i.stack.imgur.com/FhHRx.gif')
+            50% 50%
+            no-repeat;
+        }
+
+        /* When the body has the loading class, we turn
+           the scrollbar off with overflow:hidden */
+        body.loading {
+            overflow: hidden;
+        }
+
+        /* Anytime the body has the loading class, our
+           modal element will be visible */
+        body.loading .modal {
+            display: block;
+        }
+
+        body {
+            overflow-y: hidden;
+        }
+    </style>
+    <link href="../static/css/vendor/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/vendor/bootstrap.min.css.map" rel="stylesheet">
+    <link href="../static/css/vendor/bootstrap-select.min.css" rel="stylesheet">
+    <link href="../static/css/vendor/bootstrap-select.css.map" rel="stylesheet">
+    <link href="../static/css/vendor/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="../static/css/vendor/bootstrap-theme.css.map" rel="stylesheet">
+    <link href="../static/css/vendor/nv.d3.min.css" rel="stylesheet">
+    <link href="../static/css/vendor/d3.tip.css" rel="stylesheet">
+
+    <script src="../static/js/vendor/jquery-2.1.4.min.js"></script>
+    <script src="../static/js/vendor/bootstrap.min.js"></script>
+    <script src="../static/js/vendor/bootstrap-select.min.js"></script>
+    <!--<script src="../static/js/vendor/bootstrap-select.js.map"></script>-->
+    <script src="../static/js/vendor/d3.min.js"></script>
+    <script src="../static/js/vendor/d3.tip.js"></script>
+    <script src="../static/js/vendor/nv.d3.min.js"></script>
+    <style type="text/css">
+        #leftPanel,#assistantContainer{
+            background-color:black
+        }
+    </style>
+</head>
+<body>
+    <div class="col-md-3" id='leftPanel'></div>
+    <div class="col-md-9" id='mainContainer' style="background-color:#ccc;">
+        <span id='leftPanelToggleButton' class="glyphicon glyphicon-remove-circle" style='float:left;font-size:20px;'></span>
+        <span id='rightPanelToggleButton' class="glyphicon glyphicon-lamp" style='float:right;font-size:20px;'></span>
+    </div>
+    <div class="col-md-3 hide" id='assistantContainer'></div>
+    <div class="modal"></div>
+</body>
+<script src="../static/js/visRenderer.js"></script>
+<script src="../static/js/global.js"></script>
+<script src="../static/js/ui.js"></script>
+<script src="../static/js/main.js"></script>
+<script type="text/javascript">
+    $("#mainContainer").height($(window).height());
+    $("#leftPanel").height($(window).height());
+    $("#assistantContainer").height($(window).height());
+    main.init();
+</script>
+</html>

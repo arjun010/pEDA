@@ -1,0 +1,110 @@
+<aiml version="1.0.1" encoding="UTF-8">
+	<category>
+		<pattern>WHAT IS YOUR NAME</pattern>
+		<template>
+			<srai>WHAT IS NAME</srai>
+		</template>
+	</category>
+	<category>
+		<pattern>MY NAME IS *</pattern>
+		<template>
+			Hi <set name="username"><star/></set>. How may I help you analyze your data today?
+		</template>
+	</category>
+	<category>
+		<pattern>I AM *</pattern>
+		<template>
+			Hi <set name="username"><star/></set>. How may I help you analyze your data today?
+		</template>
+	</category>
+	<category>
+		<pattern>DO YOU REMEMBER MY NAME</pattern>
+		<template>
+			<srai>USERNAME</srai>
+		</template>
+	</category>
+	<category>
+		<pattern>DO YOU KNOW MY NAME</pattern>
+		<template>
+			<srai>USERNAME</srai>
+		</template>
+	</category>
+	<category>
+		<pattern>HI</pattern>
+		<template>
+			<srai>HELLO</srai>
+		</template>
+	</category>
+	<category>
+		<pattern>HI THERE</pattern>
+		<template>
+			<srai>HELLO</srai>
+		</template>
+	</category>
+	<category>
+		<pattern>HEY THERE</pattern>
+		<template>
+			<srai>HELLO</srai>
+		</template>
+	</category>
+	<category>
+		<pattern>HEY</pattern>
+		<template>
+			<srai>HELLO</srai>
+		</template>
+	</category>
+	<category>
+		<pattern>MY NAME IS *</pattern>
+		<template>
+			Hi <set name="username"><star/></set>. How may I help you analyze your data today?
+		</template>
+	</category>
+	<category>
+		<pattern>THANKS</pattern>
+		<template>
+			<srai>THANK YOU</srai>
+		</template>
+	</category>
+	<category>
+		<pattern>THIS IS FUN</pattern>
+		<template>
+			<srai>THANK YOU</srai>
+		</template>
+	</category>
+	<category>
+		<pattern>AWESOME</pattern>
+		<template>
+			<srai>THANK YOU</srai>
+		</template>
+	</category>
+	<category>
+		<pattern>GREAT</pattern>
+		<template>
+			<srai>THANK YOU</srai>
+		</template>
+	</category>
+	<category>
+		<pattern>COOL</pattern>
+		<template>
+			<srai>THANK YOU</srai>
+		</template>
+	</category>
+	<category>
+		<pattern>HAHA</pattern>
+		<template>
+			<srai> HAPPY </srai>
+		</template>
+	</category>
+	<category>
+		<pattern>LOL</pattern>
+		<template>
+			<srai> HAPPY </srai>
+		</template>
+	</category>
+	<category>
+		<pattern>*</pattern>
+		<template>
+			conversational_response;I'm sorry. I'm haven't evolved enough to understand that. Can you please try saying it in a different way?
+		</template>
+	</category>	
+</aiml>

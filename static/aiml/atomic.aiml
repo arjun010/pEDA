@@ -1,0 +1,32 @@
+<aiml version="1.0.1" encoding="UTF-8">
+	<category>
+		<pattern> HELLO </pattern>
+		<template>
+			conversational_response;Hi there. How may I help you analyze your data today?
+		</template>
+	</category>
+	<category>
+		<pattern> WHAT IS NAME </pattern>
+		<template>
+			conversational_response;My name is VizzY and I'm created by Arjun.
+		</template>
+	</category>
+	<category>
+		<pattern> USERNAME </pattern>
+		<template>
+			conversational_response;Your name is <get name='username'/> and I'm glad we met.
+		</template>
+	</category>
+	<category>
+		<pattern> HAPPY </pattern>
+		<template>
+			conversational_response;I'm glad you're enjoying this.
+		</template>
+	</category>
+	<category>
+		<pattern> THANK YOU </pattern>
+		<template>
+			conversational_response;You're welcome.
+		</template>
+	</category>
+</aiml>

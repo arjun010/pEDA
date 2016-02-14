@@ -1,0 +1,14 @@
+<aiml version="1.0.1" encoding="UTF-8">
+	<category>
+		<pattern> SCATTERPLOT * AND * </pattern>
+		<template>
+			VIS:SCATTERPLOT , ATTR_1:<star index='1'/> , ATTR_2:<star index='2'/>
+		</template>
+	</category>
+	<category>
+		<pattern> BARCHART * AND * </pattern>
+		<template>
+			VIS:BARCHART , ATTR_1:<star index='1'/> , ATTR_2:<star index='2'/>
+		</template>
+	</category>
+</aiml>

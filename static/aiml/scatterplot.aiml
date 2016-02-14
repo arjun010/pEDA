@@ -1,0 +1,44 @@
+<aiml version="1.0.1" encoding="UTF-8">
+	<category>
+		<pattern> * SCATTERPLOT BETWEEN * AND * </pattern>
+		<template>
+			<srai>SCATTERPLOT <star index="2"/> AND <star index="3"/></srai>
+		</template>
+	</category>
+	<category>
+		<pattern> SCATTERPLOT BETWEEN * AND * </pattern>
+		<template>
+			<srai>SCATTERPLOT <star index="1"/> AND <star index="2"/></srai>
+		</template>
+	</category>
+	<category>
+		<pattern> SCATTER PLOT BETWEEN * AND * </pattern>
+		<template>
+			<srai>SCATTERPLOT <star index="1"/> AND <star index="2"/></srai>
+		</template>
+	</category>
+	<category>
+		<pattern> * SCATTER PLOT BETWEEN * AND * </pattern>
+		<template>
+			<srai>SCATTERPLOT <star index="2"/> AND <star index="3"/></srai>
+		</template>
+	</category>
+	<category>
+		<pattern> SCATTER * AND * </pattern>
+		<template>
+			<srai>SCATTERPLOT <star index="1"/> AND <star index="2"/></srai>
+		</template>
+	</category>	
+	<category>
+		<pattern> SCATTERPLOT * AND * </pattern>
+		<template>
+			<srai>SCATTERPLOT <star index="1"/> AND <star index="2"/></srai>
+		</template>
+	</category>	
+	<category>
+		<pattern> SCATTER PLOT * AND * </pattern>
+		<template>
+			<srai>SCATTERPLOT <star index="1"/> AND <star index="2"/></srai>
+		</template>
+	</category>	
+</aiml>

@@ -1,0 +1,136 @@
+{
+ "olympics_86_2008.csv": {
+  "Discipline": [], 
+  "City": [], 
+  "Gender": [], 
+  "Athlete": [], 
+  "NOC": [], 
+  "Edition": [], 
+  "Event_gender": [], 
+  "Sport": [], 
+  "Medal": [], 
+  "Event": []
+ }, 
+ "american_football_data.csv": {
+  "First-Downs-Pass": [], 
+  "Passing-Cmp": [], 
+  "Passing-Att": [], 
+  "Rushing-TD": [], 
+  "Total-Offense-Yds": [], 
+  "Total-Offense-Plays": [], 
+  "Passing-Pct": [], 
+  "Passing-Yds": [], 
+  "Total-Offense-Avg": [], 
+  "School": [], 
+  "Published-Rank": [], 
+  "Rushing-Yds": [], 
+  "G": [], 
+  "First-Downs-Tot": [], 
+  "Penalties-No.": [], 
+  "Passing-TD": [], 
+  "First-Downs-Rush": [], 
+  "Rushing-Avg": [], 
+  "Turnovers-Fum": [], 
+  "First-Downs-Pen": [], 
+  "Penalties-Yds": [], 
+  "Turnovers-Tot": [], 
+  "Rushing-Att": [], 
+  "Pts": [], 
+  "Turnovers-Int": []
+ }, 
+ "nutrition.csv": {
+  "Vit_E": [], 
+  "Niacin": [], 
+  "Vit_A": [], 
+  "Vit_C": [], 
+  "Sodium": [], 
+  "Thiamin": [], 
+  "MajorGroup": [], 
+  "Tot_Lipid": [], 
+  "FA_Poly": [], 
+  "FdGp_Desc": [], 
+  "Potassium": [], 
+  "Cholestrl": [], 
+  "Water": [], 
+  "FA_Sat": [], 
+  "Fiber_TD": [
+   "fiber"
+  ], 
+  "GmWt_Desc1": [], 
+  "Energ_Kcal": [], 
+  "Ash": [], 
+  "Phosphorus": [], 
+  "Zinc": [], 
+  "Calcium": [], 
+  "Riboflavin": [], 
+  "Magnesium": [], 
+  "Iron": [], 
+  "FA_Mono": [], 
+  "Copper": [], 
+  "GmWt_1": [], 
+  "Short_Desc": [], 
+  "Carbohydrt": [], 
+  "Refuse_Pct": [], 
+  "NDB_No": [], 
+  "Protein": []
+ }, 
+ "cars_2004.csv": {
+  "Wheel": [], 
+  "RWD": [
+   "rear wheel drive"
+  ], 
+  "Name": [], 
+  "Weight": [
+   "heavy", 
+   "big"
+  ], 
+  "Engine Size (l)": [], 
+  "Cyl": [
+   "cylinder"
+  ], 
+  "Highway Miles Per Gallon (HMPG)": [
+   "fuel efficiency"
+  ], 
+  "Len": [
+   "long", 
+   "length"
+  ], 
+  "Width": [
+   "wide"
+  ], 
+  "Retail Price": [
+   "expensive"
+  ], 
+  "Base": [], 
+  "Dealer Cost": [], 
+  "AWD": [], 
+  "Type": [], 
+  "Horsepower(HP)": [], 
+  "City Miles Per Gallon (CMPG)": []
+ }, 
+ "cereals.csv": {
+  "Fiber": [], 
+  "Vitamins": [], 
+  "Weight": [
+   "gram"
+  ], 
+  "Sodium": [
+   "salt"
+  ], 
+  "Shelf": [], 
+  "Carbohydrates": [
+   "carbs"
+  ], 
+  "Sugars": [
+   "diabetes"
+  ], 
+  "Calories": [], 
+  "Fat": [], 
+  "Cereal": [], 
+  "Protein": [], 
+  "Cups": [], 
+  "Type": [], 
+  "Potassium": [], 
+  "Manufacturer": []
+ }
+}
