@@ -13,7 +13,7 @@
 
 
     main.init = function(){
-        selectDataFile();
+        selectDataFile();        
     }
 
     $("#datasetpicker").change(function(ev){
@@ -36,7 +36,7 @@
         for(var i in dataAttributes){
             var dataAttribute = dataAttributes[i];
             $(".dataattributesdropdown").append($("<option></option>").val(dataAttribute).html(dataAttribute));
-        }        
+        }
     }
 
     $(".dataattributesdropdown").change(function(ev){
@@ -46,51 +46,85 @@
         var relatedAttributeObjects = [];    
         if(attr1!=''){
             attributes.push(attr1);
-            $.post( "/getRelatedAttributes", { "attribute": attr1 })
-            .done(function(response) {
-                var relAttributeObjs = response.relatedAttributes;
-                for(var i in relAttributeObjs){
-                    var attrObj = relAttributeObjs[i];
-                    if(attrObj!={} && i<2){
-                        if(relatedAttributeObjects.indexOf(attrObj)==-1 && attrObj.attribute!=attr2){ // if attr not in relatedAttributes
-                            relatedAttributeObjects.push(attrObj);
-                        }
-                    }else{
-                        break;
-                    }
-                }
-            });
         }
         if(attr2!=''){
-            attributes.push(attr2);
-            $.post( "/getRelatedAttributes", { "attribute": attr2 })
-            .done(function(response) {
-                var relAttributeObjs = response.relatedAttributes;
-                for(var i in relAttributeObjs){
-                    var attrObj = relAttributeObjs[i];
-                    if(attrObj!={} && i<2){
-                        if(relatedAttributeObjects.indexOf(attrObj)==-1 && attrObj.attribute!=attr1){ // if attr not in relatedAttributes
-                            relatedAttributeObjects.push(attrObj);
-                        }
-                    }else{
-                        break;
-                    }
-                }
-            });
+            attributes.push(attr2);            
         }
+        updateRelatedAttributeObjects(attributes);
+        
         $.post( "/getVisualizationObject", { "attributes": attributes })
             .done(function(response) {
                 var visObject = response.visObject;
                 var visDescription = response.visDescription;
                 var visSelector = "#vis";
                 // console.log(relatedAttributeObjects);
-                populateRelatedAttributesDiv(relatedAttributeObjects);
+                populateRelatedAttributesDiv(global.relatedAttributeObjects);
                 
                 d3.selectAll(visSelector).selectAll('svg').remove();
                 $("#visDescription").text(visDescription);
                 drawVis(visObject,visSelector);
             });
-    })
+    });
+
+    $("#askQueryButton").click(function(ev){
+        processUserQuery();
+    });
+
+    function processUserQuery(){
+        var query = $("#queryBox").val();
+        $.post( "/parseSentence", { sentence: query })
+            .done(function( response ) {
+                var visObject = response['visObject'];
+                var botReply = response['response'];
+                // $("#botresponsediv").text(botReply);                
+
+                var visSelector = "#vis";
+                var xAttr = visObject.visAttributes.xAttribute==undefined?'':visObject.visAttributes.xAttribute;
+                var yAttr = visObject.visAttributes.yAttribute==undefined?'':visObject.visAttributes.yAttribute;
+
+                var visDescription;
+                if(xAttr!='' && yAttr!=''){
+                    visDescription = xAttr + " vs " + yAttr;
+                }else if(xAttr!=''){
+                    visDescription = xAttr;
+                }else if(yAttr!=''){
+                    visDescription = yAttr;
+                }
+                $("#visDescription").text(visDescription);
+
+                $("#x-axis-attribute").val(xAttr);
+                $("#y-axis-attribute").val(yAttr);
+                var attributes = [xAttr,yAttr];
+                updateRelatedAttributeObjects(attributes);
+                setTimeout(function(){
+                    populateRelatedAttributesDiv(global.relatedAttributeObjects);
+                },500)
+                
+                d3.selectAll(visSelector).selectAll('svg').remove();
+                drawVis(visObject,visSelector);
+            });
+    }
+
+    function updateRelatedAttributeObjects(attributeList){
+        global.relatedAttributeObjects = [];
+        for(var attrIndx in attributeList){
+            var curAttribute = attributeList[attrIndx];
+            $.post( "/getRelatedAttributes", { "attribute": curAttribute })
+                .done(function(response) {
+                    var relAttributeObjs = response.relatedAttributes;
+                    for(var i in relAttributeObjs){
+                        var attrObj = relAttributeObjs[i];
+                        if(attrObj!={} && i<2){
+                            if(global.relatedAttributeObjects.indexOf(attrObj)==-1 && attrObj.attribute!=curAttribute){ // if attr not in relatedAttributes
+                                global.relatedAttributeObjects.push(attrObj);
+                            }
+                        }else{
+                            break;
+                        }
+                    }                    
+                });
+        }
+    }
 
     function drawVis(visObject,selector){
       var chartType = visObject['explicitType']=='' ? visObject['recommendedType'] : visObject['explicitType'];
