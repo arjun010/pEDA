@@ -48,10 +48,12 @@ function toggleRightPanel(){
 function resizeMainContainer(){
 	$("#mainContainer").removeClass();
 	if(global.rightPanelStatus==1 && global.leftPanelStatus==1){
-		$("#mainContainer").addClass('col-md-6');
+		$("#mainContainer").addClass('col-md-7');
 	}else if(global.rightPanelStatus==0 && global.leftPanelStatus==0){
 		$("#mainContainer").addClass('col-md-12');
-	}else{
+	}else if(global.rightPanelStatus==0 && global.leftPanelStatus==1){
+		$("#mainContainer").addClass('col-md-10');
+	}else if(global.rightPanelStatus==1 && global.leftPanelStatus==0){
 		$("#mainContainer").addClass('col-md-9');
 	}
 }

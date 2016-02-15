@@ -31,7 +31,15 @@
         }
 
         body {
-            overflow-y: hidden;
+            /*overflow-y: hidden;*/
+        }
+
+        #leftPanel,#assistantContainer{
+            background-color:black;
+        }
+
+        .whitetext{
+            color: white;
         }
     </style>
     <link href="../static/css/vendor/bootstrap.min.css" rel="stylesheet">
@@ -49,20 +57,67 @@
     <!--<script src="../static/js/vendor/bootstrap-select.js.map"></script>-->
     <script src="../static/js/vendor/d3.min.js"></script>
     <script src="../static/js/vendor/d3.tip.js"></script>
-    <script src="../static/js/vendor/nv.d3.min.js"></script>
-    <style type="text/css">
-        #leftPanel,#assistantContainer{
-            background-color:black
-        }
-    </style>
+    <script src="../static/js/vendor/nv.d3.min.js"></script>    
 </head>
 <body>
-    <div class="col-md-3" id='leftPanel'></div>
-    <div class="col-md-9" id='mainContainer' style="background-color:#ccc;">
+    <div class="col-md-2" id='leftPanel'>
+        <select data-live-search="true" class="selectpicker" id="datasetpicker" data-width="150px">
+            <option value='cars_2004.csv'>Cars</option>
+            <option value='nutrition.csv'>Nutrition</option>
+            <option value='cereals.csv'>Cereals</option>
+            <option value='american_football_data.csv'>College Football</option>
+            <option value='olympics_86_2008.csv'>Olympics</option>
+        </select>
+        <hr>
+        <span class='whitetext'>X-axis:</span> <select class="dataattributesdropdown" id='x-axis-attribute'></select>
+        <br>
+        <span class='whitetext'>Y-axis:</span> <select class="dataattributesdropdown" id='y-axis-attribute'></select>        
+    </div>
+    <div class="col-md-10" id='mainContainer'>
         <span id='leftPanelToggleButton' class="glyphicon glyphicon-remove-circle" style='float:left;font-size:20px;'></span>
         <span id='rightPanelToggleButton' class="glyphicon glyphicon-lamp" style='float:right;font-size:20px;'></span>
+        <br>
+        <br>
+        <div id='visDescription'>
+            Vis Description Here
+        </div>
+        <div id='vis'>
+        </div>
     </div>
-    <div class="col-md-3 hide" id='assistantContainer'></div>
+    <div class="col-md-3 hide" id='assistantContainer'>
+        <br>
+        <div align='center'>
+            <input type="radio" name="agentMode" value="P" checked='checked'> <span class='whitetext'>Proactive</span>
+            <input type="radio" name="agentMode" value="R"> <span class='whitetext'>Responsive</span>
+        </div>
+        <hr>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#attributeSuggestionContainer">
+                Attributes you may be interested in</a>
+              </h4>
+            </div>
+            <div id="attributeSuggestionContainer" class="panel-collapse collapse">
+                <div class="panel-body" id='attributeSuggestionDiv'>
+                    No attribute suggestions available
+                </div>
+            </div>
+        </div>  
+        <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#visualizationSuggestionContainer">
+                Alternate visualizations</a>
+              </h4>
+            </div>
+            <div id="visualizationSuggestionContainer" class="panel-collapse collapse">
+                <div class="panel-body" id="visualizationSuggestionDiv">
+                    No visualization suggestions available
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="modal"></div>
 </body>
 <script src="../static/js/visRenderer.js"></script>

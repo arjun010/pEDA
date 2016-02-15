@@ -13,7 +13,7 @@
     });
 
   var scatterplotTooltip = d3.tip().attr('class', 'd3-tip').html(function(d) {
-      var displayStr = "";
+    var displayStr = "";
       displayStr += "<span style='color:gold'>" + d.label + "</span>";
       return displayStr;
     });
@@ -24,8 +24,8 @@
         var formatCount = d3.format(",.0f");
 
       var margin = {top: divHeight*0.1, right: divWidth*0.10, bottom: divHeight*0.15, left: divWidth*0.15},
-          width = 960 - margin.left - margin.right,
-          height = 500 - margin.top - margin.bottom;
+          width = divWidth - margin.left - margin.right,
+          height = divHeight - margin.top - margin.bottom;
 
       var x = d3.scale.linear()
           .domain([0, d3.max(values, function(d) { return d; })])

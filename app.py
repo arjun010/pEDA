@@ -1,10 +1,37 @@
 import os,csv,json
 from flask import Flask, render_template, jsonify,request, session, redirect, url_for, _app_ctx_stack
+from dataProcessor import DataProcessor
+from visGenie import VisGenie
+from VisObject import VisObject
 
 global dataAttributeMap
 global visGenie
 
 app = Flask(__name__)
+
+@app.route('/getRelatedAttributes', methods=['POST'])
+def getRelatesAttributes():
+    global dataAttributeMap
+    attribute = request.form['attribute']
+    return jsonify({
+            'relatedAttributes':dataAttributeMap[attribute]['relatedAttributes']
+        })
+
+@app.route('/getVisualizationObject', methods=['POST'])
+def getVisualizationObjectForAttributes():
+    global visGenie
+    dataAttributes = request.form.getlist('attributes[]')
+    print dataAttributes
+    visObject = visGenie.getVisObject(dataAttributes)[0]
+    if len(visObject['visAttributes'])==1:
+        visDescription = visObject['visAttributes']['xAttribute']
+    elif len(visObject['visAttributes'])==2:
+        visDescription = visObject['visAttributes']['xAttribute'] + " vs " + visObject['visAttributes']['yAttribute']
+    return jsonify({
+            'visObject':visObject,
+            'visDescription':visDescription
+        })
+
 
 @app.route('/initializeData', methods=['POST'])
 def initializeData():
